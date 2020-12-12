@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Cropper.fs" />
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
+    <PackageReference Include="Fable.Remoting.Client" Version="7.2.0" />
+    <PackageReference Include="feliz" Version="1.24.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IsItKrampus.NET.DataSet.Shared\IsItKrampus.NET.DataSet.Shared.fsproj" />
+  </ItemGroup>
+</Project>
