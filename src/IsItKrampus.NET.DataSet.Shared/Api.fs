@@ -1,5 +1,7 @@
 ﻿namespace IsItKrampus.NET.DataSet.Shared
 
+open System
+
 type Label =
     | Santa
     | Krampus
@@ -7,7 +9,8 @@ type Label =
 
 type ToProcess =
     { FileName: string
-      Base64Content : string }
+      Base64Content: string
+      StillToProcess: int }
 
 type BoundingBox =
     { X: float
@@ -26,4 +29,5 @@ type Result =
 
 type IProcessingApi =
     { getNextImageBase64: unit -> Async<ToProcess>
-      applyProcessing: Processed -> Async<Result> }
+      applyProcessing: Processed -> Async<Result>
+      excludeImage: Guid -> Async<Result> }

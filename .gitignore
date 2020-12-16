@@ -445,6 +445,9 @@ $RECYCLE.BIN/
 .fable
 *.fs.js
 
-data/raw
-data/prepared
+data/raw/*
+!data/raw/Readme.md
+data/prepared/*
+!data/prepared/Readme.md
 workspace/
+models/*
