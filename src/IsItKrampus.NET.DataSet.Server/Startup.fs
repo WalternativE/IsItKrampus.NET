@@ -185,7 +185,14 @@ module WebApp =
                               |> Async.AwaitTask
 
                           return Ok
-                      with ex -> return Problem ex.Message
+                      with ex ->
+                        // in case there is an exception we can't really recover from it (eg imagesharp cannot decode)
+                        // we could try to find a way to recover...or...we just throw the image away
+                        do!
+                            let line = $"nah,Other,0,0,0,0,false,{id}"
+                            File.AppendAllLinesAsync(prepFileFullPath, [ line ])
+                            |> Async.AwaitTask
+                        return Problem ex.Message
                   }
           excludeImage =
               fun (imageId: Guid) -> async {
