@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+        - ./nginx/:/etc/nginx/
+    ports:
+      - 3000:80
+    links:
+      - "lambda"
+  lambda:
+    image: isitcrampus-lambda:latest
+    ports:
+      - 9000:8080

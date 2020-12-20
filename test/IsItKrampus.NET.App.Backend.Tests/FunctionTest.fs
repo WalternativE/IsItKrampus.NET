@@ -13,7 +13,7 @@ module FunctionTest =
         |> Array.head
 
     [<Fact>]
-    let ``Invoke Inference Lambda Function``() =
+    let ``That inference works on obvious Krampus pic``() =
         // Invoke the lambda function and confirm the string was upper cased.
         let lambdaFunction = Function()
         let context = TestLambdaContext()

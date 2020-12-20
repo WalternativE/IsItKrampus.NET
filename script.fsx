@@ -12,8 +12,10 @@ let base64 =
 
 let stringContent = new StringContent(JsonSerializer.Serialize(base64))
 
+let proxiedUrl =  "http://localhost:3000/2015-03-31/functions/function/invocations"
 let resp =
-    httpClient.PostAsync("http://localhost:9000/2015-03-31/functions/function/invocations", stringContent)
+    // httpClient.PostAsync("http://localhost:9000/2015-03-31/functions/function/invocations", stringContent)
+    httpClient.PostAsync(proxiedUrl, stringContent)
     |> Async.AwaitTask
     |> Async.RunSynchronously
 
