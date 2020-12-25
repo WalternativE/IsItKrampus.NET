@@ -19,23 +19,18 @@ type Model = { Count: int }
 
 module WebApp =
     [<Literal>]
-    let dataRoot = "../../data"
+    let DataRoot = "../../data"
 
-    let rawPath = Path.Combine(dataRoot, "raw")
-
-    [<Literal>]
-    let testImageName = "dog_test_image.jpeg"
-
-    let testImage = Path.Combine(rawPath, testImageName)
+    let rawPath = Path.Combine(DataRoot, "raw")
 
     [<Literal>]
-    let preparedPath = "../../data/prepared"
+    let PreparedPath = "../../data/prepared"
 
     let downloadedImageFile = "image_downloads.tsv"
 
     let imagePrepFile = "image_prep.csv"
 
-    let prepFileFullPath = Path.Combine(dataRoot, imagePrepFile)
+    let prepFileFullPath = Path.Combine(DataRoot, imagePrepFile)
 
     type DownloadedImage =
         { ImageUrl: string
@@ -58,7 +53,7 @@ module WebApp =
         let getAllDownloadedImages () =
             async {
                 let! content =
-                    File.ReadAllLinesAsync(Path.Combine(dataRoot, downloadedImageFile))
+                    File.ReadAllLinesAsync(Path.Combine(DataRoot, downloadedImageFile))
                     |> Async.AwaitTask
 
                 let lines =
@@ -135,7 +130,7 @@ module WebApp =
                       let! (imageToProcess, stillToProcess) = pickRandomUnprocessedImage ()
 
                       let fileName =
-                          Path.Combine(dataRoot, "raw", imageToProcess.FileName)
+                          Path.Combine(DataRoot, "raw", imageToProcess.FileName)
 
                       let! bytes = File.ReadAllBytesAsync fileName |> Async.AwaitTask
 
@@ -152,7 +147,7 @@ module WebApp =
                       let id = processed.FileName.Split('.').[0]
                       let targetFileName = $"{id}.jpg"
                       let targetPath =
-                          Path.Combine(preparedPath, targetFileName)
+                          Path.Combine(PreparedPath, targetFileName)
 
                       logger.LogInformation $"Trying to process with following data: %A{processed}"
 
