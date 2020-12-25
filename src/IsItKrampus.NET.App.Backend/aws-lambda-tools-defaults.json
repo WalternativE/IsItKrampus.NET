@@ -1,16 +1,24 @@
+
 {
-  "Information": [
-    "This file provides default values for the deployment wizard inside Visual Studio and the AWS Lambda commands added to the .NET Core CLI.",
-    "To learn more about the Lambda commands with the .NET Core CLI execute the following command at the command line in the project root directory.",
-    "dotnet lambda help",
-    "All the command line options for the Lambda command can be specified in this file."
-  ],
-  "profile": "",
-  "region": "eu-central-1",
-  "configuration": "Release",
-  "package-type": "image",
-  "function-memory-size": 256,
-  "function-timeout": 30,
-  "image-command": "IsItKrampus.NET.App.Backend::IsItKrampus.NET.App.Backend.Function::FunctionHandler",
-  "docker-host-build-output-dir": "./bin/Release/net5.0/linux-x64/publish"
+    "Information" : [
+        "This file provides default values for the deployment wizard inside Visual Studio and the AWS Lambda commands added to the .NET Core CLI.",
+        "To learn more about the Lambda commands with the .NET Core CLI execute the following command at the command line in the project root directory.",
+        "dotnet lambda help",
+        "All the command line options for the Lambda command can be specified in this file."
+    ],
+    "profile"     : "default",
+    "region"      : "eu-central-1",
+    "configuration" : "Release",
+    "package-type"  : "Image",
+    "function-memory-size" : 512,
+    "function-timeout"     : 60,
+    "image-command"        : "IsItKrampus.NET.App.Backend::IsItKrampus.NET.App.Backend.Function::FunctionHandler",
+    "docker-host-build-output-dir" : "./bin/Release/net5.0/linux-x64/publish",
+    "function-name"                : "is-it-krampus-fsadvent-2020",
+    "function-description"         : "IsItKrampus Classifier",
+    "function-role"                : "arn:aws:iam::311196866415:role/lambda_exec_is-it-krampus-fsadvent-2020",
+    "tracing-mode"                 : "PassThrough",
+    "environment-variables"        : "",
+    "dockerfile"                   : "Dockerfile",
+    "image-tag"                    : "walts-pub-ecr:latest"
 }

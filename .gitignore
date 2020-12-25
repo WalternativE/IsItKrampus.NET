@@ -451,3 +451,4 @@ data/prepared/*
 !data/prepared/Readme.md
 workspace/
 models/*
+!models/Readme.md

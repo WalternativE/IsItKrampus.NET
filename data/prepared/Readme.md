@@ -1,0 +1,1 @@
+Prepared (cropped and resized) data goes into this directory.
